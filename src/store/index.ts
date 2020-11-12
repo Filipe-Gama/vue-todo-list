@@ -7,6 +7,7 @@ Vue.use(Vuex)
 
 const store: StoreOptions<Result<Task[]>> = {
     state: {
+        name: 'Vue Todo List',
         success: true,
         message: undefined,
         errorCode: 200,
