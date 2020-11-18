@@ -1,16 +1,20 @@
 import Vue from 'vue';
-import Component from 'vue-class-component';
 
-@Component({})
-export default class AddTaskComponent extends Vue {
+const AddTaskComponent = Vue.extend({
+  data(){
+    return {
+      description: '' as String,
+    }
+  },
+  methods:{
+    addNewTask() {
 
-  description: string = '';
+      const task = { description: this.description };
 
-  addNewTask() {
-    this.$store.dispatch('addTask', {
-      description: this.description
-    })
-    this.description = ''
-  }
-}
+      this.$store.dispatch('addTask', task);
+      this.description = '';
+    }
+  },
+})
 
+export default AddTaskComponent;

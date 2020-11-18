@@ -28,11 +28,11 @@ const store: StoreOptions<Result<Task[]>> = {
         }
     },
     actions: {
-        addTask(contex, task: Task) {
-            contex.commit('addTask', task);
+        addTask(context, task: Task) {
+            context.commit('addTask', task);
         },
-        editTask(contex, task: Task) {
-            contex.commit('editTask', task);
+        editTask(context, task: Task) {
+            context.commit('editTask', task);
         },
         removeTask(context, id: string) {
             context.commit('removeTask', id)
@@ -41,7 +41,10 @@ const store: StoreOptions<Result<Task[]>> = {
     getters: {
         tasks(state): Array<Task> {
             return state.data;
-        }
+        },
+        capitalTitle(state): string {
+            return state.name.toUpperCase();
+        },
     }
 }
 

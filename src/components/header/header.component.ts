@@ -1,10 +1,15 @@
 import Vue from 'vue';
-import Component from 'vue-class-component';
+const HeaderComponent = Vue.extend({
+  data(){
+    return {
+      title: '' as String,
+    };
 
-@Component({})
-export default class HeaderComponent extends Vue {
+  },
+  created(){
+    this.title = this.$store.getters.capitalTitle;
+  }
+});
+export default HeaderComponent;
 
-  title: string = this.$store.state.name;
-  
-}
 
